@@ -7,7 +7,7 @@ Config.RequiredCopsCoke = 0
 Config.RequiredCopsMeth = 0
 Config.RequiredCopsWeed = 0
 Config.RequiredCopsOpium = 0
-Config.Locale = 'en'
+Config.Locale = 'sv'
 
 Config.Zones = {
 	CokeFarm = 		 {x=2448.9228515625,  y=-1836.8076171875, z=51.953701019287},

@@ -94,7 +94,8 @@ local function TransformCoke(source)
 
 		if PlayersTransformingCoke[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			  local _source = source
+  			  local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local cokeQuantity = xPlayer.getInventoryItem('coke').count
 			local poochQuantity = xPlayer.getInventoryItem('coke_pooch').count
@@ -147,7 +148,8 @@ local function SellCoke(source)
 
 		if PlayersSellingCoke[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			  local _source = source
+  local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local poochQuantity = xPlayer.getInventoryItem('coke_pooch').count
 
@@ -216,7 +218,8 @@ local function HarvestMeth(source)
 
 		if PlayersHarvestingMeth[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			  local _source = source
+  local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local meth = xPlayer.getInventoryItem('meth')
 
@@ -264,7 +267,8 @@ local function TransformMeth(source)
 
 		if PlayersTransformingMeth[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			  local _source = source
+  local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local methQuantity = xPlayer.getInventoryItem('meth').count
 			local poochQuantity = xPlayer.getInventoryItem('meth_pooch').count
@@ -317,12 +321,13 @@ local function SellMeth(source)
 
 		if PlayersSellingMeth[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			  local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local poochQuantity = xPlayer.getInventoryItem('meth_pooch').count
 
 			if poochQuantity == 0 then
-				TriggerClientEvent('esx:showNotification', source, _U('no_pouches_sale'))
+				TriggerClientEvent('esx:showNotification', _source, _U('no_pouches_sale'))
 			else
 				xPlayer.removeInventoryItem('meth_pooch', 1)
 				if CopsConnected == 0 then
@@ -389,7 +394,8 @@ local function HarvestWeed(source)
 
 		if PlayersHarvestingWeed[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local weed = xPlayer.getInventoryItem('weed')
 
@@ -437,8 +443,8 @@ local function TransformWeed(source)
 
 		if PlayersTransformingWeed[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
-
+			local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 			local weedQuantity = xPlayer.getInventoryItem('weed').count
 			local poochQuantity = xPlayer.getInventoryItem('weed_pooch').count
 
@@ -490,7 +496,8 @@ local function SellWeed(source)
 
 		if PlayersSellingWeed[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local poochQuantity = xPlayer.getInventoryItem('weed_pooch').count
 
@@ -558,7 +565,8 @@ local function HarvestOpium(source)
 
 		if PlayersHarvestingOpium[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local opium = xPlayer.getInventoryItem('opium')
 
@@ -606,7 +614,8 @@ local function TransformOpium(source)
 
 		if PlayersTransformingOpium[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local opiumQuantity = xPlayer.getInventoryItem('opium').count
 			local poochQuantity = xPlayer.getInventoryItem('opium_pooch').count
@@ -659,7 +668,8 @@ local function SellOpium(source)
 
 		if PlayersSellingOpium[source] == true then
 
-			local xPlayer  = ESX.GetPlayerFromId(source)
+			local _source = source
+  			local xPlayer = ESX.GetPlayerFromId(_source)
 
 			local poochQuantity = xPlayer.getInventoryItem('opium_pooch').count
 

@@ -279,40 +279,64 @@ Citizen.CreateThread(function()
             DisplayHelpTextFromStringLabel(0, 0, 1, -1)
             if IsControlJustReleased(0, 38) then
                 if CurrentAction == 'coke_harvest' then
-                    TriggerServerEvent('esx_drugs:startHarvestCoke')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startHarvestCoke')
+                    end)
                 end
                 if CurrentAction == 'coke_treatment' then
-                    TriggerServerEvent('esx_drugs:startTransformCoke')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startTransformCoke')
+                    end)
                 end
                 if CurrentAction == 'coke_resell' then
-                    TriggerServerEvent('esx_drugs:startSellCoke')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startSellCoke')
+                    end)
                 end
                 if CurrentAction == 'meth_harvest' then
-                    TriggerServerEvent('esx_drugs:startHarvestMeth')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startHarvestMeth')
+                    end)
                 end
                 if CurrentAction == 'meth_treatment' then
-                    TriggerServerEvent('esx_drugs:startTransformMeth')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startTransformMeth')
+                    end)
                 end
                 if CurrentAction == 'meth_resell' then
-                    TriggerServerEvent('esx_drugs:startSellMeth')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startSellMeth')
+                    end)
                 end
                 if CurrentAction == 'weed_harvest' then
-                    TriggerServerEvent('esx_drugs:startHarvestWeed')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startHarvestWeed')
+                    end)
                 end
                 if CurrentAction == 'weed_treatment' then
-                    TriggerServerEvent('esx_drugs:startTransformWeed')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startTransformWeed')
+                    end)
                 end
                 if CurrentAction == 'weed_resell' then
-                    TriggerServerEvent('esx_drugs:startSellWeed')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startSellWeed')
+                    end)
                 end
                 if CurrentAction == 'opium_harvest' then
-                    TriggerServerEvent('esx_drugs:startHarvestOpium')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startHarvestOpium')
+                    end)
                 end
                 if CurrentAction == 'opium_treatment' then
-                    TriggerServerEvent('esx_drugs:startTransformOpium')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startTransformOpium')
+                    end)
                 end
                 if CurrentAction == 'opium_resell' then
-                    TriggerServerEvent('esx_drugs:startSellOpium')
+                    SetTimeout(5000, function()
+                        TriggerServerEvent('esx_drugs:startSellOpium')
+                    end)
                 end
                 CurrentAction = nil
             end

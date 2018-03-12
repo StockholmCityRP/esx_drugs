@@ -12,9 +12,9 @@ local Keys = {
 
 local PID           			= 0
 local GUI           			= {}
-local cokeQTE       			= 0
 ESX 			    			= nil
 GUI.Time            			= 0
+local cokeQTE       			= 0
 local coke_poochQTE 			= 0
 local weedQTE					= 0
 local weed_poochQTE 			= 0
@@ -30,6 +30,7 @@ local LastZone                  = nil
 local CurrentAction             = nil
 local CurrentActionMsg          = ''
 local CurrentActionData         = {}
+local isInZone					= false
 
 Citizen.CreateThread(function()
     while ESX == nil do
@@ -41,7 +42,14 @@ end)
 AddEventHandler('esx_drugs:hasEnteredMarker', function(zone)
 
         ESX.UI.Menu.CloseAll()
-
+		
+		if zone == 'exitMarker' then
+			if myJob ~= "police" then
+				CurrentAction     = zone
+				CurrentActionMsg  = _U('exit_marker')
+				CurrentActionData = {}
+			end
+		end
         --coke
         if zone == 'CokeFarm' then
             if myJob ~= "police" then
@@ -210,7 +218,7 @@ end)
 Citizen.CreateThread(function()
     while true do
 
-        Wait(0)
+        Citizen.Wait(10)
 
         local coords = GetEntityCoords(GetPlayerPed(-1))
 
@@ -242,7 +250,7 @@ end)
 Citizen.CreateThread(function()
     while true do
 
-        Wait(0)
+        Citizen.Wait(10)
 
         local coords      = GetEntityCoords(GetPlayerPed(-1))
         local isInMarker  = false
@@ -265,6 +273,10 @@ Citizen.CreateThread(function()
             hasAlreadyEnteredMarker = false
             TriggerEvent('esx_drugs:hasExitedMarker', lastZone)
         end
+		
+		if isInMarker and isInZone then
+			TriggerEvent('esx_drugs:hasEnteredMarker', 'exitMarker')
+		end
 
     end
 end)
@@ -272,52 +284,60 @@ end)
 -- Key Controls
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Citizen.Wait(10)
         if CurrentAction ~= nil then
             SetTextComponentFormat('STRING')
             AddTextComponentString(CurrentActionMsg)
             DisplayHelpTextFromStringLabel(0, 0, 1, -1)
-            if IsControlJustReleased(0, 38) then
-                if CurrentAction == 'coke_harvest' then
+            if IsControlJustReleased(0, Keys['E']) then
+			
+				isInZone = true -- unless we set this boolean to false, we will always freeze the user
+				if CurrentAction == 'exitMarker' then
+					isInZone = false -- do not freeze user
+					TriggerEvent('esx_drugs:freezePlayer', false)
+					TriggerEvent('esx_drugs:hasExitedMarker', lastZone)
+					Citizen.Wait(15000)
+                elseif CurrentAction == 'coke_harvest' then
                     TriggerServerEvent('esx_drugs:startHarvestCoke')
-                end
-                if CurrentAction == 'coke_treatment' then
+                elseif CurrentAction == 'coke_treatment' then
                     TriggerServerEvent('esx_drugs:startTransformCoke')
-                end
-                if CurrentAction == 'coke_resell' then
+                elseif CurrentAction == 'coke_resell' then
                     TriggerServerEvent('esx_drugs:startSellCoke')
-                end
-                if CurrentAction == 'meth_harvest' then
+                elseif CurrentAction == 'meth_harvest' then
                     TriggerServerEvent('esx_drugs:startHarvestMeth')
-                end
-                if CurrentAction == 'meth_treatment' then
+                elseif CurrentAction == 'meth_treatment' then
                     TriggerServerEvent('esx_drugs:startTransformMeth')
-                end
-                if CurrentAction == 'meth_resell' then
+                elseif CurrentAction == 'meth_resell' then
                     TriggerServerEvent('esx_drugs:startSellMeth')
-                end
-                if CurrentAction == 'weed_harvest' then
+                elseif CurrentAction == 'weed_harvest' then
                     TriggerServerEvent('esx_drugs:startHarvestWeed')
-                end
-                if CurrentAction == 'weed_treatment' then
+                elseif CurrentAction == 'weed_treatment' then
                     TriggerServerEvent('esx_drugs:startTransformWeed')
-                end
-                if CurrentAction == 'weed_resell' then
+                elseif CurrentAction == 'weed_resell' then
                     TriggerServerEvent('esx_drugs:startSellWeed')
-                end
-                if CurrentAction == 'opium_harvest' then
+                elseif CurrentAction == 'opium_harvest' then
                     TriggerServerEvent('esx_drugs:startHarvestOpium')
-                end
-                if CurrentAction == 'opium_treatment' then
+                elseif CurrentAction == 'opium_treatment' then
                     TriggerServerEvent('esx_drugs:startTransformOpium')
-                end
-                if CurrentAction == 'opium_resell' then
+                elseif CurrentAction == 'opium_resell' then
                     TriggerServerEvent('esx_drugs:startSellOpium')
-                end
+                else
+					isInZone = false -- not a esx_drugs zone
+				end
+				
+				if isInZone then
+					TriggerEvent('esx_drugs:freezePlayer', true)
+				end
+				
                 CurrentAction = nil
             end
         end
     end
+end)
+
+RegisterNetEvent('esx_drugs:freezePlayer')
+AddEventHandler('esx_drugs:freezePlayer', function(freeze)
+	FreezeEntityPosition(GetPlayerPed(-1), freeze)
 end)
 
 -- blips

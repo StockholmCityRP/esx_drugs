@@ -121,7 +121,7 @@ local function SellCoke(source)
 				TriggerClientEvent('esx:showNotification', source, _U('no_pouches_sale'))
 			else
 				xPlayer.removeInventoryItem('coke_pooch', 1)
-                xPlayer.addAccountMoney('black_money', 450)
+                xPlayer.addAccountMoney('black_money', 2510)
                 TriggerClientEvent('esx:showNotification', source, _U('sold_one_coke'))
 				SellCoke(source)
 			end
@@ -257,7 +257,7 @@ local function SellMeth(source)
 				TriggerClientEvent('esx:showNotification', source, _U('no_pouches_sale'))
 			else
 				xPlayer.removeInventoryItem('meth_pooch', 1)
-				xPlayer.addAccountMoney('black_money', 350)
+				xPlayer.addAccountMoney('black_money', 3500)
 				TriggerClientEvent('esx:showNotification', source, _U('sold_one_meth'))
 				SellMeth(source)
 			end
@@ -393,7 +393,7 @@ local function SellWeed(source)
 				TriggerClientEvent('esx:showNotification', source, _U('no_pouches_sale'))
 			else
 				xPlayer.removeInventoryItem('weed_pooch', 1)
-                xPlayer.addAccountMoney('black_money', 285)
+                xPlayer.addAccountMoney('black_money', 2850)
                 TriggerClientEvent('esx:showNotification', source, _U('sold_one_weed'))
 				SellWeed(source)
 			end
@@ -532,7 +532,7 @@ local function SellOpium(source)
 				TriggerClientEvent('esx:showNotification', source, _U('no_pouches_sale'))
 			else
 				xPlayer.removeInventoryItem('opium_pooch', 1)
-                xPlayer.addAccountMoney('black_money', 400)
+                xPlayer.addAccountMoney('black_money', 4000)
                 TriggerClientEvent('esx:showNotification', source, _U('sold_one_opium'))
 				SellOpium(source)
 			end

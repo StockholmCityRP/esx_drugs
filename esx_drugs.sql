@@ -1,12 +1,10 @@
-USE `fivem2337`;
-
-INSERT INTO `items` (name, label) VALUES
-	('weed', 'Weed'),
-	('weed_pooch', 'Pouch of weed'),
-	('coke', 'Coke'),
-	('coke_pooch', 'Pouch of coke'),
-	('meth', 'Meth'),
-	('meth_pooch', 'Pouch of meth'),
-	('opium', 'Opium'),
-	('opium_pooch', 'Pouch of opium')
+INSERT INTO `items` (`name`, `label`, `limit`) VALUES
+	('weed', 'Weed', 50),
+	('weed_pooch', 'Pouch of weed', 10),
+	('coke', 'Coke', 50),
+	('coke_pooch', 'Pouch of coke', 10),
+	('meth', 'Meth', 50),
+	('meth_pooch', 'Pouch of meth', 10),
+	('opium', 'Opium', 50),
+	('opium_pooch', 'Pouch of opium', 10)
 ;

@@ -60,7 +60,7 @@ end)
 
 local function TransformCoke(source)
 
-	SetTimeout(10000, function()
+	SetTimeout(Config.ProcessingTime, function()
 
 		if PlayersTransformingCoke[source] == true then
 
@@ -197,7 +197,7 @@ end)
 
 local function TransformMeth(source)
 
-	SetTimeout(12000, function()
+	SetTimeout(Config.ProcessingTime, function()
 
 		if PlayersTransformingMeth[source] == true then
 
@@ -334,7 +334,7 @@ end)
 
 local function TransformWeed(source)
 
-	SetTimeout(10000, function()
+	SetTimeout(Config.ProcessingTime, function()
 
 		if PlayersTransformingWeed[source] == true then
 
@@ -472,7 +472,7 @@ end)
 
 local function TransformOpium(source)
 
-	SetTimeout(10000, function()
+	SetTimeout(Config.ProcessingTime, function()
 
 		if PlayersTransformingOpium[source] == true then
 

@@ -3,10 +3,9 @@ Config.MarkerType   = 1
 Config.DrawDistance = 100.0
 Config.ZoneSize     = {x = 5.0, y = 5.0, z = 3.0}
 Config.MarkerColor  = {r = 100, g = 204, b = 100}
-Config.RequiredCopsCoke = 0
-Config.RequiredCopsMeth = 0
-Config.RequiredCopsWeed = 0
-Config.RequiredCopsOpium = 0
+
+Config.ProcessingTime = 20 * 1000
+
 Config.Locale = 'sv'
 
 Config.Zones = {
